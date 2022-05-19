@@ -18,9 +18,11 @@ a{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color:rgb(74, 85, 95)
 }
+
+.navitem{
+    color:rgb(252, 252, 144);
+}
 .active{
     color:rgb(0, 0, 255) ;
 }
-.active-navitem{
-    color: aqua;
-}
+/* Home belongs to active and navitem, but since home is at the botom of the CSS it takes priority */
