@@ -40,3 +40,8 @@ margin: 5px;
     color: azure;
     font-size: large;
 }
+
+main#Login-container{
+    background-color: rgb(198, 209, 209);
+    padding: 5px;
+}
