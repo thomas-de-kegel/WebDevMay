@@ -1,7 +1,23 @@
+nav{
+background-color: rgb(212, 201, 182);
+padding: 1px;
+}
+
 li{
     display: inline;
 }
 
 ul{
     text-align: center;
+}
+
+a{
+    text-decoration: none
+}
+/* Removes the underline from all hyperlinks on your page */
+/* Ids are case sensitive!! */
+#Home{
+    text-align: center;
+    background-color:antiquewhite ;
+    padding: 5px;
 }
