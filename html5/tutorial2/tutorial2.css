@@ -1,5 +1,5 @@
 ul{
-    background-color: lightsteelblue;
+    background-color: rgb(222, 231, 244);
 }
 li{
     list-style: square;
@@ -19,5 +19,8 @@ a{
     color:rgb(74, 85, 95)
 }
 .active{
-    color:blue ;
+    color:rgb(0, 0, 255) ;
+}
+.active-navitem{
+    color: aqua;
 }
