@@ -34,3 +34,9 @@ margin: 5px;
     width: auto;
     padding: auto;
 }
+#Footer{
+    background-color: rgb(139, 163, 163);
+    text-align: center;
+    color: azure;
+    font-size: large;
+}
