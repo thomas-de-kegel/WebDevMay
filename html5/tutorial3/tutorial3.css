@@ -21,3 +21,10 @@ a{
     background-color:antiquewhite ;
     padding: 5px;
 }
+
+article > img{
+width: 50vw;
+max-width: 300px;
+float: left;
+margin: 5px;
+}
