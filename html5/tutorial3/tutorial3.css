@@ -45,3 +45,11 @@ main#Login-container{
     background-color: rgb(198, 209, 209);
     padding: 5px;
 }
+
+form{
+    border: 1px black;
+    border-style: solid;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: aliceblue;
+}

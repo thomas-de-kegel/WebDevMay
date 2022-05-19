@@ -10,13 +10,25 @@
 <body>
    <main id="Login-container">
        <h1>Login Page</h1>
-       <form method="get" action="/save">
-           <input type="text" placeholder="Enter your username" value="Admin" required>
-           <input type="password" placeholder="Enter your password">
-           <input type="submit" value="send">
+       <form method="post" action="/save">
+           <legend>Form input Datas</legend>
+           <label for="username">username</label><br>
+           <input type="text" placeholder="Enter your username"name="username" value="Admin" required> <br>
+           <label for="password">password</label><br>
+           <input type="password" name="password" placeholder="Enter your password"><br>
+           <input type="text" value="Aalst" readonly><br>
+           <input type="hidden" value="token3214215125124" readonly required>
+           <label for="date">date</label><br>
+           <input type="date" name="date"><br>
+           <label for="email">email address</label><br>
+           <input type="email" placeholder="Enter your email address" name="email" required><br>
+           <!-- <input type="submit" value="send"> -->
            <!-- required will ask a user to fill in that field if it's left empty -->
            <button>send</button>
            <!-- same action but using semantic elements -->
+           <!-- GET method will add the info given to the URL -->
+           <!-- POST will not do this and are more secure -->
+           <!-- save?username=admin&password=12345&email=admin%40admin.com -->
        </form>
        <!-- This form will first get input data and then save it on the local server -->
    </main>
