@@ -10,6 +10,15 @@
 <body>
    <main id="Login-container">
        <h1>Login Page</h1>
+       <form method="get" action="/save">
+           <input type="text" placeholder="Enter your username" value="Admin" required>
+           <input type="password" placeholder="Enter your password">
+           <input type="submit" value="send">
+           <!-- required will ask a user to fill in that field if it's left empty -->
+           <button>send</button>
+           <!-- same action but using semantic elements -->
+       </form>
+       <!-- This form will first get input data and then save it on the local server -->
    </main>
 </body>
 </html>
