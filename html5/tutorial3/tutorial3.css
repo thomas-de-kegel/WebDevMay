@@ -57,3 +57,7 @@ form{
 main#Gallery{
     background-color: black;
 }
+
+video{
+    max-width: 380px;
+}
