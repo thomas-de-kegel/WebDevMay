@@ -23,8 +23,14 @@ a{
 }
 
 article > img{
-width: 50vw;
+width: auto;
 max-width: 300px;
 float: left;
 margin: 5px;
+}
+/* IDS ARE CASE SENSITIVE!!!!!! */
+#Blog{
+    display: flex;
+    width: auto;
+    padding: auto;
 }
