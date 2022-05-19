@@ -1,8 +1,15 @@
+ul{
+    background-color: lightsteelblue;
+}
 li{
     list-style: square;
     display: inline;
     /* shows items next to each other instead of on top */
-    color:lightslategray
+    color:lightslategray;
+    
+}
+li :hover{
+    color: brown;
 }
 /* refer to a so you can change how the link looks */
 a{
@@ -10,4 +17,7 @@ a{
     font-weight: 200;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color:rgb(74, 85, 95)
+}
+.active{
+    
 }
