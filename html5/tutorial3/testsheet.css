@@ -4,3 +4,35 @@ header{
     background-color: tomato;
     color: white;
 }
+ul{
+    list-style: none;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+li{
+    float: left;
+}
+li a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 16px;
+    /* link padding adds space between the links */
+}
+li :hover{
+    text-decoration: underline;
+}
+#searchbar{
+    float: right;
+    /* This anchors the searchbar to the right of the page */
+    padding-right: 16px;
+}
+#searchbar input{
+    max-width: 100%;
+    width: fit-content;
+}
+nav{
+    background-color: rgb(238, 83, 56);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
