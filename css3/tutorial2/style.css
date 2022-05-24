@@ -144,4 +144,5 @@ footer{
     text-align: center;
     position: fixed;
     bottom: 0;
+    /* this makes it so the footer always sticks to the bottom of the screen */
 }
