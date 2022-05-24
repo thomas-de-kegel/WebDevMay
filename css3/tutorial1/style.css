@@ -1,0 +1,49 @@
+/* fieldset{ */
+    /* border-color: brown;
+    border-style: solid dashed double dotted;
+    border-width: 1px; */
+
+    /* border: 1px solid brown; */
+    /* Much compacter way of styling */
+/*     
+    border-top: 3px dashed brown;
+    border-bottom: 4px dotted yellow;
+    border-left: 2px double blue;
+    border-right: 5px groove purple; */
+    /* border-image: url(https://d2ofqe7l47306o.cloudfront.net/games/vitrine/outer-wilds-echoes-of-the-eye.jpg) 10% repeat;
+    border-width: 15px; */
+/* } */
+
+#main{
+    border: 2px solid red;
+    height: 95vh;
+    width: 97vw;
+}
+
+/* .container{
+    border: 2px solid purple;
+} */
+
+fieldset[class="container"]{
+    border: 2px solid red;
+}
+
+input[name="PC"]{
+    border: 2px solid red;
+    background-color: aqua;
+}
+
+select[value="GTX1080"]{
+    background-color: black;
+    color: white;
+}
+
+label[name="Computer?"]{
+    color: red;
+}
+
+body{
+    background: url(https://d2ofqe7l47306o.cloudfront.net/games/vitrine/outer-wilds-echoes-of-the-eye.jpg) no-repeat;
+    background-size: 100%;
+    /* background-position: center; */
+}
