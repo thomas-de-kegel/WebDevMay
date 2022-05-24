@@ -96,3 +96,37 @@ th{
     background-color: rgb(0, 0, 0);
     color: white;
 }
+
+.boxcontainer> div{
+    width: 100px;
+    height: 100px;
+    padding: 3px;
+}
+
+.box1{
+    background-color: cyan;
+    color: black;
+    position:absolute;
+    left: 0px;
+}
+
+.box2{
+    background-color: magenta;
+    color: white;
+    position:absolute;
+    left: 20px;
+}
+
+.box3{
+    background-color: yellow;
+    color: black;
+    position:absolute;
+    left: 40px;
+}
+
+.box4{
+    background-color: black;
+    color: white;
+    position:absolute;
+    left: 60px;
+}
