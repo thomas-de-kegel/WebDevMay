@@ -5,22 +5,21 @@ body{
 }
 
 header{
-    height: 100%;
-    width: 100%;
     color: rgb(71, 71, 71);
 }
 
 header>h2{
-    margin-left: 3em;
+    margin-left: 10%;
     font-weight: lighter;
+    padding-bottom: 20px;
 }
 
 .navbar>ul{
     display: flex;
     list-style: none;
     position: absolute;
-    right: 3em;
-    top: 1em;
+    right: 10%;
+    top: 5%;
 }
 
 .navbar>ul>li{
@@ -28,7 +27,7 @@ header>h2{
 }
 
 .intro{
-    margin-left: 70px;
+    margin-left: 10%;
 }
 
 .intro>p{
@@ -40,7 +39,7 @@ header>h2{
     width: 300px;
     background-color: rgb(144, 144, 144);
     position: absolute;
-    right: 3em;
+    right: 10%;
     top: 10%;
 }
 
@@ -48,4 +47,23 @@ header>h2{
     text-align: center;
     position: relative;
     top: 40px;
+}
+
+.container{
+    background-color: white;
+    color: rgb(71, 71, 71);
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.container>.child{
+    width: 200px;
+    height: 200px;
+    background: rgb(144, 144, 144);
+    margin: 5px;
+    margin-top: 15px;
 }
