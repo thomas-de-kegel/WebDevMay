@@ -80,11 +80,13 @@ header>h2{
 }
 
 .container>.feed{
-    width: 620px;
+    width: 90%;
     margin: 5px;
     margin-top: 20px;
     background: rgb(152, 152, 152);
     height: 50px;
+    display: flex;
+    align-items: center;
 }
 
 .container>.feed>p{
