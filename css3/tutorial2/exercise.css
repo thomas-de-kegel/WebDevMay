@@ -1,0 +1,51 @@
+body{
+    margin: 0px;
+    background-color: rgb(180, 180, 180);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header{
+    height: 100%;
+    width: 100%;
+    color: rgb(71, 71, 71);
+}
+
+header>h2{
+    margin-left: 3em;
+    font-weight: lighter;
+}
+
+.navbar>ul{
+    display: flex;
+    list-style: none;
+    position: absolute;
+    right: 3em;
+    top: 1em;
+}
+
+.navbar>ul>li{
+    padding: 5px;
+}
+
+.intro{
+    margin-left: 70px;
+}
+
+.intro>p{
+    width: 200px
+}
+
+.intro>.projectslider{
+    height: 150px;
+    width: 300px;
+    background-color: rgb(144, 144, 144);
+    position: absolute;
+    right: 3em;
+    top: 10%;
+}
+
+.intro>.projectslider>p{
+    text-align: center;
+    position: relative;
+    top: 40px;
+}
