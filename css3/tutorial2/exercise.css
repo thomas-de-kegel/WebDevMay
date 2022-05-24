@@ -19,7 +19,7 @@ header>h2{
     list-style: none;
     position: absolute;
     right: 10%;
-    top: 5%;
+    top: 10px;
 }
 
 .navbar>ul>li{
@@ -31,22 +31,25 @@ header>h2{
 }
 
 .intro>p{
-    width: 200px
+    width: 200px;
+    position: relative;
+    top: -30px;
 }
 
 .intro>.projectslider{
     height: 150px;
     width: 300px;
-    background-color: rgb(144, 144, 144);
+    background-color: rgb(152, 152, 152);
     position: absolute;
     right: 10%;
-    top: 10%;
+    top: 100px;
+    display: flex;
+    align-items: center;
 }
 
 .intro>.projectslider>p{
-    text-align: center;
     position: relative;
-    top: 40px;
+    left: 60px;
 }
 
 .container{
@@ -57,13 +60,57 @@ header>h2{
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 35px;
-    padding-bottom: 35px;
+    padding-bottom: 15px;
 }
 
 .container>.child{
     width: 200px;
     height: 200px;
-    background: rgb(144, 144, 144);
+    background: rgb(152, 152, 152);
     margin: 5px;
     margin-top: 15px;
+    align-items: center;
+    display: flex;
+}
+
+.container>.child>p{
+    position: relative;
+    text-align: center;
+    left: 50px;
+}
+
+.container>.feed{
+    width: 620px;
+    margin: 5px;
+    margin-top: 20px;
+    background: rgb(152, 152, 152);
+    height: 50px;
+}
+
+.container>.feed>p{
+    position: relative;
+    margin-left: 20px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0px;
+    color: rgb(71, 71, 71);
+    width: 100%;
+}
+
+footer>ul{
+    display: flex;
+    list-style: none;
+    position: relative;
+    bottom: -3em;
+}
+
+footer>ul>li{
+    padding: 5px;
+}
+
+footer>p{
+    text-align: right;
+    padding-right: 10%;
 }
