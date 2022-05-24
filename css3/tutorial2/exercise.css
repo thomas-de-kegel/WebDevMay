@@ -84,6 +84,8 @@ header>h2{
 
 .container>.feed{
     width: 90%;
+    min-width: 620px;
+    max-width: 1250px;
     margin: 5px;
     margin-top: 20px;
     background: rgb(152, 152, 152);
