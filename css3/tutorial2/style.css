@@ -108,6 +108,7 @@ th{
     color: black;
     position:absolute;
     left: 0px;
+    z-index: 1;
 }
 
 .box2{
@@ -115,6 +116,7 @@ th{
     color: white;
     position:absolute;
     left: 20px;
+    z-index: 2;
 }
 
 .box3{
@@ -122,6 +124,7 @@ th{
     color: black;
     position:absolute;
     left: 40px;
+    z-index: 3;
 }
 
 .box4{
@@ -129,4 +132,16 @@ th{
     color: white;
     position:absolute;
     left: 60px;
+    z-index: 4
+    ;
+}
+
+footer{
+    background-color: black;
+    color: white;
+    padding: 2em;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
 }
