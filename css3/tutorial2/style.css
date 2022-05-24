@@ -1,0 +1,49 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+/* box model */
+.container{
+    background-color: black;
+    width: 200px;
+    height: 200px;
+    /* padding-top: 5px;
+    padding-left: 20px; */
+    padding: 25px 20px 0px;
+    /* first value is top, then right, then bottom */
+    outline: 5px solid rgb(55, 255, 95);
+    border: 5px solid rgb(241, 255, 87);
+}
+/* select the p element inside the container class */
+.container>p{
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    text-shadow: 2px 2px 0px rgb(48, 75, 255);
+    /* first value is X axis, second is Y axis, third is blur  */
+    transform: rotate(45deg);
+    letter-spacing: 4px;
+}
+
+.content{
+    width: 100%;
+    background-color: black;
+    padding: 1em;
+}
+
+.content>a{
+    color: white;
+}
+
+.content>a:hover{
+    color: aquamarine;
+    text-decoration: none;
+}
+
+.content>a:visited{
+    color: red;
+}
+
+.content>a:active{
+    color: orange;
+}
