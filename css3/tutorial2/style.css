@@ -26,9 +26,11 @@ body{
 }
 
 .content{
-    width: 100%;
+    width: auto;
+    text-align: center;
     background-color: black;
     padding: 1em;
+    color: white;
 }
 
 .content>a{
@@ -46,4 +48,24 @@ body{
 
 .content>a:active{
     color: orange;
+}
+
+.menu{
+    border-bottom: 1px dashed;
+    border-color: white;
+    padding-bottom: 5px;
+}
+
+.menu>li{
+    list-style: none;
+    width: auto;
+    display: inline;
+    padding: 5px;
+}
+
+.menu>li:hover{
+    color: black;
+    background-color: white;
+    border-radius: 15px;
+    width: 50px;
 }
