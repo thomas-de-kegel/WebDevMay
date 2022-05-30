@@ -1,0 +1,76 @@
+html>body{
+    margin:0;
+    padding:0;
+}
+
+header{
+    background: red;
+    padding: 3px;
+    color: white;
+    text-align: center;
+}
+
+nav{
+    background: blue;
+    padding: 3px;
+    color: aliceblue;
+}
+
+nav>ul{
+    list-style-type: none;
+    text-align: center;
+}
+
+nav>ul>li{
+    display: inline;
+    font-size: 20pt;
+    margin-right: 10px;
+}
+
+aside{
+    background: burlywood;
+    padding: 5px;
+    width: 25%;
+    float: left;
+    margin: 5px;
+}
+
+aside>ul{
+    list-style-type: none;
+}
+
+aside>ul>li{
+    font-size: 16pt;
+}
+
+main{
+    background: brown;
+    width: 73%;
+    float: right;
+    margin: 5px;
+    color: white;
+}
+
+footer{
+    background: black;
+    clear: both;
+    padding: 3px;
+    color: white;
+    text-align: center;
+    margin: 5px;
+}
+
+article{
+    height: 120px;
+    background: yellow;
+    color: black;
+    width: 500px;
+}
+
+article>p{
+    /* white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 300px;
+    overflow: hidden; */
+    column-count: 2;
+}
