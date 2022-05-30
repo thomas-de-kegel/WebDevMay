@@ -72,5 +72,38 @@ article>p{
     text-overflow: ellipsis;
     width: 300px;
     overflow: hidden; */
-    column-count: 2;
+    column-count: 3;
+}
+
+.gallery-container{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    /* will always keep 3 items on the same line */
+    grid-gap: 10px;
+}
+
+.box{
+    background-color: whitesmoke;
+    background-size: cover;
+    height: 200px;
+    color: black;
+    animation: myAnimation ease-in-out 0.05s infinite;
+}
+
+@keyframes myAnimation{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    33%{
+        transform: rotate(0.14deg);
+    }
+
+    66%{
+        transform: rotate(-0.14deg);
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
 }
