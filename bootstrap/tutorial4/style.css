@@ -1,0 +1,10 @@
+.carousel-item>img{
+    height: 300px;
+    object-fit: cover;
+    
+  }
+
+ .webdev-body{
+     background: url(https://images2.alphacoders.com/108/thumb-1920-1081554.jpg);
+     background-size: 100%;
+ }
