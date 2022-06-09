@@ -1,8 +1,14 @@
-let temperature;
-temperature = 11;
 
-if (temperature >= 20) {
-    document.getElementById("scarf").innerText = "You do not need a scarf today!";
-} else {
-    document.getElementById("scarf").innerText = "You need a scarf today!";
-}
+let temperature = Math.floor(Math.random() * (31));
+
+
+// if (temperature > 19) {
+//     document.getElementById("scarf").innerHTML = "You do not need a scarf today!";
+// } else {
+//     document.getElementById("scarf").innerHTML = "You need a scarf today!";
+// }
+
+let cold = (temperature < 20)? "You do not need a scarf!" : "You do need a scarf!";
+document.getElementById("scarf").innerHTML = cold;
+
+document.getElementById("tempDisplay").innerHTML = temperature;
