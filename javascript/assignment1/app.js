@@ -8,7 +8,7 @@ let temperature = Math.floor(Math.random() * (31));
 //     document.getElementById("scarf").innerHTML = "You need a scarf today!";
 // }
 
-let cold = (temperature < 20)? "You do not need a scarf!" : "You do need a scarf!";
+let cold = (temperature <= 20)? "You do need a scarf!" : "You don't need a scarf!";
 document.getElementById("scarf").innerHTML = cold;
 
 document.getElementById("tempDisplay").innerHTML = temperature;
