@@ -317,4 +317,34 @@ function printerService(getFilteredData){
     console.log(getResult);
 }
 
-printerService(users); //needs to be an array, not a string. Otherwise the forEach function in the upper case function will not work 
+//printerService(users); //needs to be an array, not a string. Otherwise the forEach function in the upper case function will not work 
+
+//reduce method
+var numbers= [11,44,55,66,772,523,624,153,634,4,5,123]
+let result = numbers.reduce(function(accumulator,currentValue){
+    return accumulator + currentValue;
+
+})
+//reduce goes from left to right
+
+var students ={
+
+}
+
+var nestedArray = [1,2,3,[4,5,6,[7,8,9]]];
+
+//fill (replaces every array value with something)
+result = numbers.fill(5);
+
+//flat method (removes a specified number of nestings from the given arrays and combines all the date into one single array)
+result = nestedArray.flat(1);
+result = [nestedArray[0],nestedArray[1],nestedArray[2],...nestedArray[3]]
+
+/*
+result = numbers.reduceRight(function(accumulator,currentValue){
+    console.log("Current Value: ", currentValue);
+    console.log("Accumulator: ", accumulator);
+    return accumulator + currentValue;
+})
+*/
+console.log(result);
