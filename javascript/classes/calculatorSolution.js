@@ -17,7 +17,7 @@ class Calc{
         return this.result= this.number1 * this.number2;
     }
 
-    divider(){
+    divide(){
         return this.result= this.number1 / this.number2;
     }
 
@@ -30,6 +30,9 @@ class Calc{
 let app = new Calc(10,5);
 //math operation
 app.add();
+app.subtract();
+app.multiply();
+app.divide();
 
 //get result
 app.toString();
