@@ -29,6 +29,13 @@ class CivilDrone extends Drone {
   getDroneOwners() {
     return this.owners;
   }
+
+  //toString
+  toString() {
+    console.log(
+      `${this.deviceId} specs:\nspeed: ${this.speed}\nbattery: ${this.battery}\n####################\nOwner: ${this.fullName}, registered at ${this.address}`
+    );
+  }
 }
 
 //Child class drone
@@ -52,14 +59,21 @@ class MilitaryDrone extends Drone {
   getDroneOwners() {
     return this.owners;
   }
+
+  //toString
+  toString() {
+    console.log(
+      `${this.deviceId} specs:\nspeed: ${this.speed}\nbattery: ${this.battery}\n####################\nOwner: ${this.fullName}, registered at ${this.address}`
+    );
+  }
 }
 
 let drone1 = new CivilDrone();
 drone1.registeredDroneOwner("Drone#001", "Winnand", "Brussels");
-drone1.registeredDroneOwner("Drone#002","Joe","Auderghem");
-drone1.registeredDroneOwner("Drone#003","John","Stalingrad");
-console.log(drone1.getDroneOwners());
+drone1.registeredDroneOwner("Drone#002", "Joe", "Auderghem");
+drone1.registeredDroneOwner("Drone#003", "John", "Stalingrad");
+drone1.toString();
 
 let drone2 = new MilitaryDrone();
-drone2.registeredDroneOwner("MilDrone #001","Billybob Johnson","NYC");
-console.log(drone2.getDroneOwners());
+drone2.registeredDroneOwner("MilDrone #001", "Billybob Johnson", "NYC");
+//console.log(drone2.getDroneOwners());
