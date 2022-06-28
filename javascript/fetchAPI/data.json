@@ -1,4 +1,22 @@
 {
-  "api": [],
-  "products": []
+  "api": [
+    {
+      "username": "root",
+      "password": "root123",
+      "id": 1
+    },
+    {
+      "username": "Bartjen",
+      "password": "Bartjen123",
+      "id": 2
+    }
+  ],
+  "products": [
+    {
+      "productType": "Computer",
+      "productName": "Alienware gaming PC",
+      "price": "$420",
+      "id": 1
+    }
+  ]
 }
