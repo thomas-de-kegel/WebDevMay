@@ -13,6 +13,9 @@ let getUsers = new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 //step 2: extract specific properties from single user
+getUsers.then(function getData(){
+    
+});
 
 //step 3: users.push();
 
