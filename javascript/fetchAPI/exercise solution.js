@@ -31,6 +31,7 @@ GetData()
 //*/
 
 //second method
+//*
 GetData()
 .then(data=>{
     return data.map(({id,name,username,email})=>({id,name,username,email}))
@@ -52,3 +53,4 @@ const obj={
 
 const {id,name,username} = obj
 console.log(username)
+//*/
