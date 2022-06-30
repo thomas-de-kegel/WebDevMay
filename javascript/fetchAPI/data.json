@@ -6,9 +6,9 @@
       "id": 1
     },
     {
-      "username": "Bartjen",
-      "password": "Bartjen123",
-      "id": 2
+      "username": "Joe Dalton",
+      "id": 2,
+      "password": "root321321"
     }
   ],
   "products": [
