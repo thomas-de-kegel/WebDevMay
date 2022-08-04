@@ -11,7 +11,7 @@
 
 //element gen
 
-//*
+/*
 
 const g = (t) => document.createElement(t);
 
@@ -42,16 +42,68 @@ cardText.append(actualCardText);
 const cardBtn= g('a');
 cardBtn.href= "#";
 cardBtn.className= "btn btn-primary";
-const buttonText = document.createTextNode("Go somewhere");
+const buttonText = document.createTextNode("Go somewhere"); //InnerText can remove entire chunks of text as opposed to using createTextNode
 cardBtn.append(buttonText);
 
 
-cardBody.append(cardTitle);
-cardBody.append(cardText);
-cardBody.append(cardBtn);
+cardBody.append(cardTitle, cardText, cardBtn);
 
-card.append(randomImage)
-card.append(cardBody);
-document.body.appendChild(card);
+card.append(randomImage, cardBody)
+
+const cloneOfCardContainer = card.cloneNode(true);
+cloneOfCardContainer.children[1].children[0].innerText= "New Card Title"
+cloneOfCardContainer.children[1].children[2].className= "btn btn-danger"
+
+document.body.append(card);
+document.body.append(cloneOfCardContainer);
 
 //*/
+
+function MakeCardComponent(image, cardTitle, description, btnColor, btnText) {
+    // Card Container
+    const CardContainer = g('div')
+    CardContainer.setAttribute('style', 'width: 18rem;')
+
+    // Card Image
+    const CardImage = g('img')
+    CardImage.setAttribute('src', `${image}`)
+    //CardImage.classList.add('card-img-top')
+    CardImage.className = "card-img-top"
+    CardImage.setAttribute('alt', 'Random')
+
+
+
+    const CardBody = g('div')
+    CardBody.classList.add('card-body')
+
+    const h5 = g('h5')
+    h5.classList.add('card-title')
+    const CardTitleText = document.createTextNode(cardTitle)
+    h5.append(CardTitleText)
+
+    const desc = g('p')
+    desc.classList.add('card-text')
+    const CardText = document.createTextNode(description)
+    desc.append(CardText)
+
+    const CardBtn = g('a')
+    CardBtn.classList.add('btn')
+    CardBtn.classList.add(btnColor != undefined ? btnColor : 'btn-primary')
+    CardBtn.innerText = btnText
+    CardBody.append(h5)
+    CardBody.append(desc)
+    CardBody.append(CardBtn)
+    CardContainer.append(CardImage)
+    CardContainer.append(CardBody)
+    console.log(btnColor)
+    return document.body.append(CardContainer)
+}
+
+
+MakeCardComponent('https://evolutionsports.nl/wp-content/uploads/2020/10/Martial-Art-stijlen-die-als-inspiraatsie-diende-voor-Avatar-The-Last-Airbender.jpeg','This is a test','lorem ipsum lorem ipsum','btn-success','Click me')
+
+MakeCardComponent('https://evolutionsports.nl/wp-content/uploads/2020/10/Martial-Art-stijlen-die-als-inspiraatsie-diende-voor-Avatar-The-Last-Airbender.jpeg','Tasdasdasdasd','lorem ipsum lorem ipsum')
+
+document.querySelector('.RemoveBtn').addEventListener('click',()=>{
+    document.body.removeChild(document.body.children[2])
+})
