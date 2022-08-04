@@ -89,4 +89,25 @@ thHandle.setAttribute('scope','col')
 trOfThead.append(thIndex,thFirst,thLast,thHandle)
 thead.append(trOfThead)
 table.append(thead)
+
+const tbody = g('tbody') //tbody
+
+const trOfTbody = g('tr') //child of tbody
+
+const thOfTbody = g('th') //child of tr of tbody
+thOfTbody.scope = 'row'
+thOfTbody.innerText= '1'
+
+const tdFirst = g('td') //child of tr of tbody
+tdFirst.innerText="joe"
+
+
+const tdLast = g('td') //child of tr of tbody
+tdLast.innerText="Dalton"
+
+
+const tdHandle = g('td') //child of tr of tbody
+tdHandle.innerText="@Joe"
+trOfTbody.append(thOfTbody, tdFirst, tdLast, tdHandle)
+tbody.append(trOfTbody)
 console.log(table, thead)
