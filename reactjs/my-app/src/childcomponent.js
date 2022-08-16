@@ -1,4 +1,9 @@
 //import socialmedia from "./component/socialmedia";
+const myCompStyle={
+    color: "red",
+    fontSize: "14px",
+}
+
 
 /*
 function AnotherComponent(){
@@ -32,9 +37,14 @@ export default function ChildComponent(){
             {companyName}
             <h1>{someResult}</h1>
             <h2>{getSumOfNumber(2,5)}</h2>
+            <h1 style={myCompStyle}>AAAAAAAAAAAAAAAAAAAAAAAA</h1>
             <h3>{printStudentName("Jim")}</h3>
-            <h1>AAAAAAAAAAAAAAAAAAAAAAAA</h1>
             {console.log(companyName)}
+            {
+                false? console.log("Hello!") : console.log("Goodbye!")
+            }
         </div>
+
+        
     )
 }
