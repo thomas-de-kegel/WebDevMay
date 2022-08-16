@@ -4,8 +4,8 @@ import useState from "react"
 function App() {
   //const {number.setNumber} = useState();
   function handleClick() {
-    number++;
-    console.log(`you clicked the button ${number} times!!!`);
+   // number++;
+    console.log(`you clicked the button!!!`);
   }
 
   return (
