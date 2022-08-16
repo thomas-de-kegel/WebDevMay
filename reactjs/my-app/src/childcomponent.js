@@ -1,4 +1,4 @@
-import socialmedia from "./component/socialmedia";
+//import socialmedia from "./component/socialmedia";
 
 /*
 function AnotherComponent(){
@@ -33,8 +33,8 @@ export default function ChildComponent(){
             <h1>{someResult}</h1>
             <h2>{getSumOfNumber(2,5)}</h2>
             <h3>{printStudentName("Jim")}</h3>
+            <h1>AAAAAAAAAAAAAAAAAAAAAAAA</h1>
             {console.log(companyName)}
-            {}
         </div>
     )
 }
