@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Badge, Button, Col, Container, Row } from "react-bootstrap";
 
+
 function App() {
   const [users, setUsers] = useState([]); //the standard value of the useState is an empty array
   const [currentUser, setCurrentUser] = useState({}) //the standard value of the useState is an empty object
@@ -16,6 +17,16 @@ function App() {
     console.log(param);
     setCurrentUser(param);
   }
+
+  function create_UUID(){ //We create a unique UUID so we don't have to use the index number as the key
+    var dt = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = (dt + Math.random()*16)%16 | 0;
+    dt = Math.floor(dt/16);
+    return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+    });
+    return uuid;
+    }
 
   // when we click the button we create an array map that runs through each user and retrieves specifically their name and prints it into a new paragraph, while also assigning each paragraph a unique key in the form of the index number
   return (
@@ -34,8 +45,8 @@ function App() {
         </Col>
         {/* {console.log(users)} */}
 
-        {users.map((user, index) => ( //Don't use the index number as a key, use a built in ID instead
-          <div key={index} onClick={()=> getDetailOfUser(user)}>
+        {users.map((user, index) => ( //Don't use the index number as a key, use a built in ID instead. In this case we call the create_UUID function for each key.
+          <div key={create_UUID()} onClick={()=> getDetailOfUser(user)}> 
             <p>{user.name}</p>
           </div>
         ))}
