@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import TodoList from "./TodoList";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import cryptoExercise from './cryptoExercise';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <cryptoExercise></cryptoExercise>
+    <cryptoExercise />
   </React.StrictMode>
 );
 
