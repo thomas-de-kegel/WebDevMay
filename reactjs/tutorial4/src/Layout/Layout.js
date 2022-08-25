@@ -1,15 +1,16 @@
-import React from 'react'
-import Footer from './Footer'
-import Header from './Header'
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import Footer from "./Footer";
+import Header from "./Header";
 
-function Layout() {
+function Layout({children}) {
   return (
-    <>
-    <Header />
-    <h1> Child's dynamic content</h1>
-    <Footer />
-    </>
-  )
+      <BrowserRouter>
+        <Header />
+        {children}
+        <Footer />
+      </BrowserRouter>
+  );
 }
 
-export default Layout
+export default Layout;
