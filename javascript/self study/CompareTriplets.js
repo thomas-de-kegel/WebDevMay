@@ -1,4 +1,3 @@
-
 function compareTriplets(a, b) {    
     // Write your code here
     let aliceScore = 0;
