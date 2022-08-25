@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Router, Routes, Link, Route } from "react-router-dom";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
-import {AiFillTwitterSquare} from 'react-icons/fa'
+import {AiFillTwitterSquare, FaDiscord, FaTwitterSquare} from 'react-icons/fa'
 
 function Header() {
   return (
@@ -34,9 +34,9 @@ function Header() {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
+            <Nav.Link href="#deets"><FaTwitterSquare className="display-6 text-info"/></Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
-              Dank memes
+              <FaDiscord className="display-6 text-primary"/>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
