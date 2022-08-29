@@ -1,25 +1,21 @@
-import React from "react";
-import { CardGroup, Card } from "react-bootstrap";
+import React from 'react'
+import { Card } from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
-function MovieCards({singlemovie}) {
-  return (
-  
-      <Card>
-        <Card.Img variant="top" src="https://image.tmdb.org/t/p/w500/8cXbitsS6dWQ5gfMTZdorpAAzEH.jpg" />
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This card has even longer content than the
-            first to show that equal height action.
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
-      </Card>
- 
-  );
+function MovieCards({movie,test}) {
+    return (
+        <li key={movie.id} id="movie1" data-toggle="modal" data-target="#moviedetail">
+        <div className="movie">
+          <figure className="movie__figure">
+            <Link to={`/${movie.id}`}>
+          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} className="movie__poster"/>
+          </Link>
+            <figcaption><span className="movie__vote" style={{"background-color" : movie.vote_average <7 ? "orange" : movie.vote_average <3? "red" : "lime"}}>{movie.vote_average}</span></figcaption>
+            <h2 className="movie__title">{movie.title}</h2>
+          </figure>
+        </div>
+      </li>
+    )
 }
 
-export default MovieCards;
+export default MovieCards
