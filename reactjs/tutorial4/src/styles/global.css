@@ -121,3 +121,11 @@ img{
 .bg-none{
     background-color: transparent !important;
 }
+
+.detail-left{
+    border-right: rgb(78, 78, 78) solid 1px;
+}
+
+.genre-list{
+    background-color: rgb(43, 47, 57);
+}

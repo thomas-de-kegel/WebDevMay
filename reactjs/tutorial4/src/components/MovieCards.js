@@ -10,7 +10,7 @@ function MovieCards({movie,test}) {
             <Link to={`/${movie.id}`}>
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} className="movie__poster"/>
           </Link>
-            <figcaption><span className="movie__vote" style={{"background-color" : movie.vote_average <7 ? "orange" : movie.vote_average <3? "red" : "lime"}}>{movie.vote_average}</span></figcaption>
+            <figcaption><span className="movie__vote" style={{"background-color" : movie.vote_average <7 ? "orange" : movie.vote_average <3? "blue" : "lime"}}>{movie.vote_average}</span></figcaption>
             <h2 className="movie__title">{movie.title}</h2>
           </figure>
         </div>
