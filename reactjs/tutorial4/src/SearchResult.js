@@ -1,8 +1,10 @@
 import React from 'react'
 
-function SearchResult([result]) {
+function SearchResult({result}) {
   return (
-    <div>SearchResult{console.log(result)}</div>
+    <div>
+      <h1>SearchResult{console.log(result)}</h1>
+      </div>
   )
 }
 
