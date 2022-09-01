@@ -1,13 +1,13 @@
 import React from 'react'
 import { Navbar, Container, NavDropdown, Nav } from "react-bootstrap";
-import {GiHamburger} from 'react-icons/gi'
+import {GiKnifeFork} from 'react-icons/gi'
 
 function Header() {
   return (
     <Navbar expand="lg" className="main-navbar">
       <Container>
         <Navbar.Brand href="#home" className="main-brand">
-        <GiHamburger className="me-2 display-6"/>
+        <GiKnifeFork className="me-2 display-6"/>
         <span className="underScore">_</span>NomDB
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
