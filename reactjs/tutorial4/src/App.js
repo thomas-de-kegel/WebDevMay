@@ -8,15 +8,33 @@ import MovieDetail from "./MovieDetail";
 import SearchResult from "./SearchResult";
 
 function App() {
-  const [result,setResult] = useState([])
-  const searchResult = () => {
-    console.log("this is a search result")
-    setResult([{
-      id:1,
-      name:'Batman'
-
-    }])
-  }
+   // https://api.themoviedb.org/3/search/movie?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US&page=1&query=Joker
+   const [result,setResult] = useState([])
+   const [inputValue,setInputValue] = useState('')
+   const inputHandler = (e) =>{
+       if(inputValue !==''){
+           setInputValue(e.target.value)
+       }else{
+           setInputValue('a')
+           
+       }
+       let inputVal = e.target.value
+       fetch(`https://api.themoviedb.org/3/search/movie?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US&page=1&query=${inputVal}`)
+       .then(response=>response.json())
+       .then(data=>{
+           setResult(data.results)
+           
+       })
+       .catch(err=>console.log(err))
+    //   .finally(()=><Navigate to={'/'}/>)
+   }
+   const searchResult = ()=>{
+       console.log('This is search handler')
+       // setResult([{
+       //     id:1,
+       //     name:'Batman & Joker'
+       // }])
+   }
   return (
     <>
     <Layout>
