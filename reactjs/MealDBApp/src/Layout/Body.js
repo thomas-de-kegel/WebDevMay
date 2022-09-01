@@ -1,14 +1,19 @@
-import React from 'react'
-import { Container} from "react-bootstrap";
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import CarouselComponent from "../Components/CarouselComponent";
 
 function Body() {
   return (
     <>
-    <Container fluid className="body-container">
-        Test
-    </Container>
+      <CarouselComponent />
+      <Container fluid>
+        <Row>
+          <Col>test</Col>
+          <Col>test</Col>
+        </Row>
+      </Container>
     </>
-  )
+  );
 }
 
-export default Body
+export default Body;
