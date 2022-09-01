@@ -50,3 +50,10 @@ html {
   font-weight: bold;
   font-style: normal;
 }
+
+.sidebar-top-item{
+  background:#f4d35e;
+  padding: 8px;
+  border-radius: 3px;
+  border: solid rgba(0, 0, 0, 0.179) 1px;
+}
