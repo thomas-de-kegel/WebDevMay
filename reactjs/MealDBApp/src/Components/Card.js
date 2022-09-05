@@ -10,7 +10,7 @@ function MealCard() {
         <Card.Text>
           ...
         </Card.Text>
-        <Button className="card-button">Check the recipe</Button>
+        <Button className="card-button">Check the recipe&#62;&#62;</Button>
       </Card.Body>
     </Card>
   );
