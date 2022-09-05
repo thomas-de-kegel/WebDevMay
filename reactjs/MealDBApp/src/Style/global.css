@@ -73,11 +73,22 @@ html {
 .cards-container {
   background: #F9F9F1;
   border-radius: 3px;
-  display:flex;
+  width: 100%;
+}
+
+.meal-card{
+  box-shadow: 0px 2px 5px rgba(22, 22, 22, 0.133);
+  width: 18em !important;
+}
+
+.meal-card-image{
+  box-shadow: 0px 2px 5px rgba(22, 22, 22, 0.133);
+  border: solid rgba(0, 0, 0, 0.53) 1px ;
 }
 
 .card-button {
   background-image: linear-gradient(#f4d35e, #ee964b) !important;
   border: solid rgba(0, 0, 0, 0.179) 1px !important;
+  width: 100%;
   color: black !important;
 }
