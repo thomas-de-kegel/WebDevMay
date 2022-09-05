@@ -6,10 +6,10 @@ function Body() {
   return (
     <>
       <CarouselComponent />
-      <Container fluid>
+      <Container fluid className="main-body-container">
         <Row>
           <Col md={2}>
-            <ListGroup className="p-2">
+            <ListGroup className="m-2 category-list">
               <ListGroup.Item bsPrefix="sidebar-top-item">What's on the menu?</ListGroup.Item>
               <ListGroup.Item>Breakfast</ListGroup.Item>
               <ListGroup.Item>Morbi leo risus</ListGroup.Item>

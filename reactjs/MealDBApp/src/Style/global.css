@@ -6,9 +6,14 @@
   box-shadow: 0px 2px 5px rgba(22, 22, 22, 0.296);
   font-size: large;
   z-index: 1;
+  
 }
 
 html {
+  background-color: #ebebd3;
+}
+
+.main-body-container {
   background-color: #ebebd3;
 }
 
@@ -57,4 +62,8 @@ html {
   border-radius: 3px;
   border: solid rgba(0, 0, 0, 0.179) 1px;
   text-align: center;
+}
+
+.category-list {
+  box-shadow: 0px 2px 5px rgba(22, 22, 22, 0.133);
 }
