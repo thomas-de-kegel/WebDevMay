@@ -1,14 +1,14 @@
-import React from 'react'
-import { Navbar, Container, NavDropdown, Nav } from "react-bootstrap";
-import {GiKnifeFork} from 'react-icons/gi'
+import React from "react";
+import { Navbar, Container, NavDropdown, Nav, Form } from "react-bootstrap";
+import { GiKnifeFork } from "react-icons/gi";
 
 function Header() {
   return (
     <Navbar expand="lg" className="main-navbar">
-      <Container>
+      <Container fluid>
         <Navbar.Brand href="#home" className="main-brand">
-        <GiKnifeFork className="me-2 display-6"/>
-        <span className="underScore">_</span>NomDB
+          <GiKnifeFork className="me-2 display-6" />
+          <span className="underScore">_</span>NomDB
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -23,7 +23,7 @@ function Header() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  )
+  );
 }
 
-export default Header
+export default Header;

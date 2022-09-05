@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col, ListGroup } from "react-bootstrap";
+import Card from "../Components/Card";
 import CarouselComponent from "../Components/CarouselComponent";
 
 function Body() {
@@ -18,7 +19,13 @@ function Body() {
             </ListGroup>
           </Col>
 
-          <Col md={10}>Cards for meals</Col>
+          <Col md={10} >
+          <Container fluid className="mt-2  cards-container">
+            <Card/>
+            <Card/>
+            <Card/>
+          </Container>
+          </Col>
         </Row>
       </Container>
     </>
