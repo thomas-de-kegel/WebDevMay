@@ -19,11 +19,10 @@ function Body() {
         `https://www.themealdb.com/api/json/v1/1/categories.php`
       );
       let data = await response.json();
-      setCategories(data.results);
-      console.log(data.results);
+      setCategories(data.categories);
     };
     fetchCategories();
-  });
+  },[]);
 
   return (
     <>
@@ -53,17 +52,16 @@ function Body() {
           <Col md={10}>
             <Row xs={1} md={2} className="mt-2 p-2 cards-container">
               {categories !== undefined
-                ? categories.map((mealCategory, index) => (
+                ? (
+                  categories.map((mealCategory, index) => (
                     <CategoryCard
-                      mealCategory={mealCategory}
-                      key={mealCategory[index].idCategory}
-                    />
-                  ))
+                    mealCategory={mealCategory}
+                    key={mealCategory.idCategory}
+                  />
+                    ))
+                )
                 : ""}
-              <CategoryCard />
-              <CategoryCard />
-              <CategoryCard />
-              <CategoryCard />
+                {console.log(categories)}
             </Row>
           </Col>
         </Row>
