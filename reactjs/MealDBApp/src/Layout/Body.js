@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Row,
   Col,
   ListGroup,
-  CardGroup,
   Form,
   FloatingLabel,
 } from "react-bootstrap";
-import Card from "../Components/Card";
 import CarouselComponent from "../Components/CarouselComponent";
+import CategoryCard from "../Components/CategoryCard";
 
 function Body() {
+  //https://www.themealdb.com/api/json/v1/1/categories.php
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      let response = await fetch(
+        `https://www.themealdb.com/api/json/v1/1/categories.php`
+      );
+      let data = await response.json();
+      setCategories(data.results);
+      console.log(data.results);
+    };
+    fetchCategories();
+  });
+
   return (
     <>
       <CarouselComponent />
@@ -39,13 +52,18 @@ function Body() {
 
           <Col md={10}>
             <Row xs={1} md={2} className="mt-2 p-2 cards-container">
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+              {categories !== undefined
+                ? categories.map((mealCategory, index) => (
+                    <CategoryCard
+                      mealCategory={mealCategory}
+                      key={mealCategory[index].idCategory}
+                    />
+                  ))
+                : ""}
+              <CategoryCard />
+              <CategoryCard />
+              <CategoryCard />
+              <CategoryCard />
             </Row>
           </Col>
         </Row>
