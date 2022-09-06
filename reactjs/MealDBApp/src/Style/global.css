@@ -81,3 +81,16 @@ html {
   width: 100%;
   color: black !important;
 }
+
+.recipe-sidebar {
+  border: solid rgba(0, 0, 0, 0.179) 1px !important;
+}
+
+.recipe-container {
+  background-color: #ebebd3;
+  box-shadow: 0px 2px 5px rgba(22, 22, 22, 0.133);
+}
+
+.recipe-mainbody{
+  background-color: #f7f7ee;
+}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import CarouselComponent from "../Components/CarouselComponent";
 import MealCard from "../Components/MealCard";
 
@@ -9,7 +9,7 @@ function Meals() {
   useEffect(() => {
     const fetchMeals = async () => {
       let response = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/filter.php?c=chicken`
+        `https://www.themealdb.com/api/json/v1/1/filter.php?c=vegetarian`
       );
       let data = await response.json();
       setMeals(data.meals);
