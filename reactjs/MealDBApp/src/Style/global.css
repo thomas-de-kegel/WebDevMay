@@ -57,27 +57,14 @@ html {
   font-style: normal;
 }
 
-.sidebar-top-item {
-  background-image: linear-gradient(#f4d35e, #ee964b);
-  padding: 8px;
-  border-radius: 3px;
-  border: solid rgba(0, 0, 0, 0.179) 1px;
-  text-align: center;
-}
-
-.category-list {
-  box-shadow: 0px 2px 5px rgba(22, 22, 22, 0.133);
-}
-
 .cards-container {
-  background: #f9f9f1;
   border-radius: 3px;
   width: 100%;
 }
 
 .category-card {
   box-shadow: 0px 2px 5px rgba(22, 22, 22, 0.133);
-  width: 18em !important;
+  width: 15.63em !important;
 }
 
 .category-card-image {
