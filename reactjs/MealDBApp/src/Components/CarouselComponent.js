@@ -1,8 +1,10 @@
 import React from "react";
+import { Row } from "react-bootstrap";
 import Carousel from 'react-bootstrap/Carousel';
 
 function CarouselComponent() {
   return (
+    <>
     <Carousel fade controls={false} indicators={false} className="Carousel">
       <Carousel.Item className="carousel-item">
         <img
@@ -26,6 +28,7 @@ function CarouselComponent() {
         />
       </Carousel.Item>
     </Carousel>
+    </>
   );
 }
 
