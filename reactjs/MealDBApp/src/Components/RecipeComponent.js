@@ -12,7 +12,7 @@ function RecipeComponent({ recipeChoice, recipe }) {
             src={recipeChoice.strMealThumb}
           />
           <ListGroup variant="flush">
-            <ListGroup.Item>Ingredients:</ListGroup.Item>
+            <ListGroup.Item>Ingredients:</ListGroup.Item> {/*TODO: try moving map function to recipe.js and work from there?*/}
             {recipe.map((ingredient, index)=> {
                 if(index >= 9 && index <= 28){
                     {console.log(ingredient)}
