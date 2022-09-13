@@ -18,4 +18,7 @@ http.createServer(function(request, response){
     // response.write("<script>console.log('helloooooooooo')</script>")
 }).listen(3000,()=>{
     console.log("Server is running...Port number: 3000"); //this is for developers only so the end user cannot see this
-});
+}).on('connection', ()=>{
+    console.log('New connection established') //we send a comment to the console every time someone connects
+    
+})
