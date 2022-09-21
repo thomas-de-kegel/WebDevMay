@@ -14,8 +14,21 @@ async function main() {
 }
 
 // 1. create a schema
+
+function clean(obj) {
+  for (var propName in obj) {
+    if (obj[propName] === "" || obj[propName] === undefined) {
+      delete obj[propName];
+    }
+  }
+  return obj;
+}
+
 const customerSchema = new mongoose.Schema({
-  fullname: String,
+  fullname: {
+    type: String,
+    lowercase: true,
+  },
   email: String,
   phone: String,
   address: String,
@@ -47,16 +60,101 @@ function doesCustomerExist(fullname) {
 
 prompt.start();
 
-function AddCustomer(){
-    prompt.get(['fullname','email'],(err,customer)=>{
-        console.log(customer)
-        Menu()
+function AddCustomer() {
+  prompt.get(
+    ["fullname", "email", "phone", "address", "website"],
+    (err, customer) => {
+      //console.log(customer)
+      // create obj from model
+      const customerObj = new Customer(customer);
+      doesCustomerExist(customer.fullname)
+        .then((fullname) => {
+          fullname === null
+            ? validateEmail(customer.email)
+              ? customerObj.save().then((data) => console.log("Customer saved"))
+              : console.log("Invalid Email")
+            : console.log("Name is not available");
+          //clear console after 2 seconds
+        })
+        .finally(() =>
+          setTimeout(() => {
+            console.clear();
+            Menu();
+          }, 2000)
+        );
+    }
+  );
+}
+
+function UpdateCustomer() {
+  prompt.get(
+    ["fullname", "email", "phone", "address", "website"],
+    (err, customer) => {
+      Customer.findOneAndUpdate(
+        { fullname: customer.fullname },
+        clean(customer),
+        (err) => {
+          console.log("customer data updated!!!");
+        }
+      );
+      //    console.log(clean(customer))
+    }
+  );
+}
+
+function GetAllCustomers() {
+  Customer.find({})
+    .then((data) => {
+      data.forEach((customer) => {
+        console.table({
+          fullname: customer.fullname,
+          email: customer.email,
+          phone: customer.phone,
+          address: customer.address,
+          website: customer.website,
+        });
+      });
     })
+    .finally(() => {
+      console.log("Press 'x' to return to the menu");
+      prompt.get(["return"], (err, answer) => {
+        if (answer.return === "x") {
+          Menu();
+        }
+      });
+    });
+}
+
+function DeleteCustomer() {
+  prompt.get(["fullname"], (err, customer) => {
+    doesCustomerExist(customer.fullname)
+      .then((fullname) => {
+        fullname !== null
+          ? Customer.findOneAndDelete({
+              fullname: customer.fullname,
+            }).then(() => console.log(`${customer.fullname} is deleted.`))
+          : console.log("Customer not found");
+      })
+      .finally(() =>
+        setTimeout(() => {
+          console.clear();
+          Menu();
+        }, 3000)
+      );
+  });
 }
 
 //get properties for prompt from Customer object
 
 function Menu() {
+  console.log(`
+    ||CustomerDB V.0.0.1||
+    █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+    █░░╦─╦╔╗╦─╔╗╔╗╔╦╗╔╗░░█
+    █░░║║║╠─║─║─║║║║║╠─░░█
+    █░░╚╩╝╚╝╚╝╚╝╚╝╩─╩╚╝░░█
+    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
+    `);
   console.log(`
     1. Add Customer\n
     2. Update Customer\n
@@ -70,22 +168,29 @@ function Menu() {
         AddCustomer();
         break;
       case "2":
-        console.log("update customer");
-        Menu();
+        prompt.get(["fullname"], (err, customer) => {
+          Customer.find({ fullname: customer.fullname })
+            .then((response) => response.length > 0)
+            .then((bool) => {
+              if (bool) {
+                UpdateCustomer();
+              }
+            });
+
+          //   UpdateCustomer()
+        });
         break;
       case "3":
-        console.log("delete customer");
-        Menu();
+        DeleteCustomer();
         break;
       case "4":
-        console.log("get all customers");
-        Menu();
+        GetAllCustomers();
         break;
       case "5":
         console.log("exit");
         process.exit();
-    default:
-        console.log('INVALID OPTION');
+      default:
+        console.log("INVALID OPTION");
         Menu();
     }
   });
