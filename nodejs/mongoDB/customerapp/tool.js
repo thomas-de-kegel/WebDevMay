@@ -86,17 +86,25 @@ function AddCustomer() {
   );
 }
 
-function UpdateCustomer() {
+function UpdateCustomer(customerFullname) {
   prompt.get(
     ["fullname", "email", "phone", "address", "website"],
     (err, customer) => {
-      Customer.findOneAndUpdate(
-        { fullname: customer.fullname },
-        clean(customer),
-        (err) => {
-          console.log("customer data updated!!!");
-        }
-      );
+      Customer.updateOne(
+        { fullname: customerFullname },
+        {$set:clean(customer)})
+        .then(response=>console.log(response))
+        .finally(() => {
+          console.log("Press 'x' to return to the menu")
+          prompt.get(['return'], (err, answer) => {
+            if(answer.return === 'x') {
+              console.clear()
+              Menu()
+            }
+          })
+        })
+        
+      
       //    console.log(clean(customer))
     }
   );
@@ -173,7 +181,7 @@ function Menu() {
             .then((response) => response.length > 0)
             .then((bool) => {
               if (bool) {
-                UpdateCustomer();
+                UpdateCustomer(customer.fullname);
               }
             });
 
