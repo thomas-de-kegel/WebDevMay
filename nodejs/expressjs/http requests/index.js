@@ -1,67 +1,67 @@
-//import express module
+// import express module
 const express = require("express");
 const app = express();
 
-//import env variables
+// import env variables
 require("dotenv").config();
 
-//import body-parser
+// import body-parser
 const bodyParser = require("body-parser");
 
+// use body-parser middleware
 app.use(
   bodyParser({
     extended: true,
   })
 );
 
-//middleware
-function isUserLoggedIn(request, response, next) {
-  const {username} = request.query
-  if(username ==='admin'){
-    response.json({
-        username:username,
-        msg:"success"
-    })
-  }else{
-    response.json({
-        msg:"failed"
-    })
+// middleware
+function isUserLogged(req, res, next) {
+  const { username } = req.query;
+  if (username !== "admin") {
+    res.status(401).send("Unauthorized");
+  } else {
+    next();
   }
-  next()
 }
+
 // get request
-app.get("/", (request, response) => {
-  response.json({ id: 1, title: "Lorem Ipsum", body: "Lorem Ipsum Dolor" });
+app.get("/", (req, res) => {
+  res.json({ id: 1, title: "lorem ipsum", body: "lorem ipsum content" });
 });
 
 // post request
-app.post("/", isUserLoggedIn, (request, response) => {
-  //mongo should save request body here
-  const { id, title, body } = request.body;
-  response.json({
+app.post("/", isUserLogged, (req, res) => {
+  // mongo should save req body here
+  const { id, title, body } = req.body;
+  res.json({
     id,
     title,
     body,
   });
 });
 
-// put request
-app.put("/", (request, response) => {
-  const { id } = request.query;
-  const { title, body } = request.body;
-  response.json({ title, body, message: `${id} is updated.` });
-});
-
-//delete request
-app.delete("/", (request, response) => {
-  const { id } = request.query;
-  const { _id } = request.body;
-  response.json({
-    message: `${id} has been deleted | ${_id} has been deleted`,
+// PUT request
+app.put("/", (req, res) => {
+  const { id } = req.query;
+  const { title, body } = req.body;
+  res.json({
+    title,
+    body,
+    message: `${id} is updated`,
   });
 });
 
-//set listening port number
+// delete
+app.delete("/", (req, res) => {
+  const { id } = req.query;
+  const { _id } = req.body;
+  res.json({
+    message: `${id} deleted | ${_id} deleted`,
+  });
+});
+
+// set listening port number
 app.listen(process.env.PORT, () => {
-  console.log(`server is listening on ${process.env.PORT}`);
+  console.log(`Server is listening on ${process.env.PORT}`);
 });
