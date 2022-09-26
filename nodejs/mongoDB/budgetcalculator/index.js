@@ -48,22 +48,10 @@ function addBudget() {
 // ||Update a month's expences
 function updateExpences(budgetMonth) {
   prompt.get('expenses', (err, budget) => {
-    expences.push(parseInt(budget.expences, 10))
-    console.log(budget.expences)
-    // MonthlyBudget.updateOne({ month: budgetMonth })
-    //   .then((response) => console.log(response))
-    //   .finally(() => {
-    //     console.log("Enter anything to return to the menu");
-    //     prompt.get(["return"], (err, answer) => {
-    //       if (answer.return === "x") {
-    //         console.clear();
-    //         Menu();
-    //       } else {
-    //         console.clear();
-    //         Menu();
-    //       }
-    //     });
-    //   });
+    budgetMonth.expences.push(budget);
+    budgetMonth.save().then((data)=>{
+      console.log(data, "New expences saved.");
+    })
   });
 }
 
