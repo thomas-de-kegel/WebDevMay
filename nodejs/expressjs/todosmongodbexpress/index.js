@@ -10,52 +10,53 @@
 9. we GET posts through /posts and POST or PUT(update) posts via /post
 10. intigrate the other necessary HTTP request methods ||NOTE|| keep the 'Not found' page at the very end of the page
 */
-//importing express and mongoose
-const express = require('express')
-const mongoose = require('mongoose')
 
-//create server for express
-const app = express()
+//import express and mongoose
+const express = require('express');
+const mongoose = require('mongoose');
+
+//create the server
+const app = express();
 
 //connect to mongoDB
-mongoose.connect('mongodb://localhost:27017/expressmongo', (err)=>{
-    console.log("Connected to mongoDB")
+mongoose.connect('mongodb://localhost:27017/expresstodos', (err)=>{
+    console.log("DB connected")
 })
 
-//create post schema
-const postSchema= mongoose.Schema({
-    title:String,
-    content:String,
+//create todo schema
+const todoSchema= mongoose.Schema({
+    task:String,
+    done:Boolean,
     date:String
 })
 
 //compile schema to model
-const Post= mongoose.model('Posts', postSchema)
+const Todo= mongoose.model('todos', todoSchema)
 
 //import middleware (built in module like bodyParser)
 app.use(express.json())
 
 //first endpoint
 app.get('/',(request,response) => {
-   response.send("Newspaper restfulAPI v1.0")
+   response.send("todo API v1.0")
 })
 
-app.get('/posts',(request,response) => {
-    //retrieves all posts from mongoDB and returns them as JSON
-    Post.find({})
-    .then(posts=>{
-        console.log(posts)
+app.get('/todos',(request,response) => {
+    //retrieves all todos from mongoDB and returns them as JSON
+    Todo.find({})
+    .then(todos=>{
+        console.log(todos)
         response.json({
             message:"ok",
-            data:posts
+            data:todos
         })
     })
 })
 
-app.post('/post', (request,response) => {
-    const {title,content} = request.body
-    const post = new Post({title,content,date:new Date()})
-    post.save()
+app.post('/todo', (request,response) => {
+    const {task,done} = request.body
+    const todo = new Todo({task,done,date:new Date()})
+    todo.save()
     .then(answer => {
         response.json({
             message: "Saved",
@@ -64,11 +65,11 @@ app.post('/post', (request,response) => {
     })
 })
 
-//we find a specific post and update it
-//http://localhost:8080/post/(post id)
-app.put('/post/:id', (request,response) => {
+//we find a specific todo and update it
+//http://localhost:8080/todo/(todo id)
+app.put('/todo/:id', (request,response) => {
     const {id} = request.params
-    Post.findByIdAndUpdate(id, request.body) //find a post by its id and update it with the body content of our HTTP request
+    Todo.findByIdAndUpdate(id, request.body) //find a todo by its id and update it with the body content of our HTTP request
     .then(result=>{
         response.json({
             message: "Updated",
@@ -77,11 +78,11 @@ app.put('/post/:id', (request,response) => {
     })
 })
 
-//find and delete a specific post by its id
-//http://localhost:8080/post/(post id)
-app.delete('/post/:id', (request,response) => {
+//find and delete a specific todo by its id
+//http://localhost:8080/todo/(todo id)
+app.delete('/todo/:id', (request,response) => {
     const {id} = request.params
-    Post.findByIdAndDelete(id)
+    Todo.findByIdAndDelete(id)
     .then(result => {
         response.json({
             message: "Deleted",
