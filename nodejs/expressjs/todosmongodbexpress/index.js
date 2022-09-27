@@ -14,9 +14,12 @@
 //import express and mongoose
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 //create the server
 const app = express();
+app.use(express.json())
+app.use(cors()) //can be used to either allow access to the api from everywhere, or to restrict it to certain domains
 
 //connect to mongoDB
 mongoose.connect('mongodb://localhost:27017/expresstodos', (err)=>{
@@ -52,6 +55,10 @@ app.get('/todos',(request,response) => {
         })
     })
 })
+
+//find todos by userId
+
+//app.get(/todos/)
 
 app.post('/todo', (request,response) => {
     const {task,done} = request.body
