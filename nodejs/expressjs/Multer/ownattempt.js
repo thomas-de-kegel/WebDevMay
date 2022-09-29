@@ -9,6 +9,7 @@ const app = express();
 //setting up middleware
 app.use(cors());
 app.use(express.json());
+app.use('/uploads',express.static('./uploads')) //make the uploads folder static and readable. First argument is the endpoint, last is the folder we want to make readable
 
 app.get("/", (request, response) => {
   response.json({
