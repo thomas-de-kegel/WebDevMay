@@ -26,8 +26,11 @@ const storage = multer.diskStorage({
 const uploader = multer({
   storage,
   fileFilter: (request, file, callback) => {
+    let arr = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/ico']
+    let isValidImg = arr.filter(img=>img===file.mimetype)
+    console.log(isValidImg.length>0)
     //console.log(file.mimetype); //we console the type of the file uploaded
-    if(file.mimetype === 'application/pdf' || 'image/png' || 'image/jpeg'){ //we only allow pdf, png and jpg files
+    if(isValidImg.length>0){ //we only allow pdf, png and jpg files
         callback(null, true); //the callback function specifies that if it is called, the file is allowed to be stored
     }else{
         callback(new Error('Invalid file type'))
