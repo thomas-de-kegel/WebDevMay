@@ -23,7 +23,18 @@ const storage = multer.diskStorage({
 });
 
 //setting up fileuploader
-const uploader = multer({ storage }); //we specify where multer will save the files
+const uploader = multer({
+  storage,
+  fileFilter: (request, file, callback) => {
+    //console.log(file.mimetype); //we console the type of the file uploaded
+    if(file.mimetype === 'application/pdf' || 'image/png' || 'image/jpeg'){ //we only allow pdf, png and jpg files
+        callback(null, true); //the callback function specifies that if it is called, the file is allowed to be stored
+    }else{
+        callback(new Error('Invalid file type'))
+    }
+  },
+}); //we specify where multer will save the files
+
 app.post("/", uploader.single("document"), (request, response) => {
   console.log(request.file.path); //displays the filepath of the upload !!file.path, NOT files.path!!
   response.json({
