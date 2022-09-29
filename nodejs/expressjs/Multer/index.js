@@ -1,3 +1,5 @@
+//in Insomnia: set to multipart form. name as document, choose type as file and then post.
+
 //dependencies
 const express = require("express");
 const cors = require("cors");
