@@ -25,7 +25,7 @@ const storage = multer.diskStorage({
 //setting up fileuploader
 const uploader = multer({ storage }); //we specify where multer will save the files
 app.post("/", uploader.single("document"), (request, response) => {
-  console.log(request.files.path); //displays the filepath of the upload
+  console.log(request.file.path); //displays the filepath of the upload !!file.path, NOT files.path!!
   response.json({
     msg: "ok", //we confirm the upload worked
   });
