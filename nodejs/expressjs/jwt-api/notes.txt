@@ -1,4 +1,5 @@
 npm install bcryptjs express jsonwebtoken cors mongoose --save
 
 bcryptjs > hashing plaintext passwords
+//most used is ES256
 jsonwebtoken > generate unique token for each user session
