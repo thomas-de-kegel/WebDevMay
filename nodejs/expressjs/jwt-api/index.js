@@ -3,27 +3,28 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 //import mongoose
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 //user schema
 const userSchema = mongoose.Schema({
-    username:{
-        type:String,
-        unique:true
-    },
-    password:{
-        type:String
-    }
-})
+  username: {
+    type: String,
+    unique: true,
+  },
+  password: {
+    type: String,
+  },
+});
 
 //compile schema to model
-const User = mongoose.model('Users', userSchema)
+const User = mongoose.model("Users", userSchema);
 
 //db connection
-mongoose.connect(process.env.DB_URI, ()=>console.log('db connected'))
+mongoose.connect(process.env.DB_URI, () => console.log("db connected"));
 
-require('dotenv').config()
 //use middleware
 app.use(express.json());
 app.use(cors());
@@ -34,36 +35,62 @@ app.get("/", (request, response) => {
 });
 
 //registration endpoint
-app.post('/register', (request, response) => {
-    console.log(request.body)
-    //make obj from model
-    // const new_user = new User(request.body)
-    // new_user.save()
-    // .then(user=>{
-    //     response.json({
-    //         msg:"User created",
-    //         data:user
-    //     })
-    // })
-
-})
-
-app.post("/login", (request, response) => {
-  const { username } = request.body;
-  jwt.sign(
-    { username },
-    "verysecretkey",
-    {
-      algorithm: "HS256",
-      expiresIn: "60s",
-    },
-    (err, token) => {
+app.post("/register", (request, response) => {
+  console.log(request.body);
+  const password = bcrypt.hashSync(request.body.password, 10); //password is encrypted here
+  //make obj from model
+  const new_user = new User({
+    username: request.body.username,
+    password: password,
+  });
+  new_user
+    .save()
+    .then((user) => {
       response.json({
-        payload: request.body,
-        token: token,
+        msg: "User created",
+        data: user,
+      });
+    })
+    .catch((err) => {
+      if (err) {
+        response.status(403).send("Try another username");
+      }
+    });
+});
+
+app.post("/login", (req, res) => {
+  const { username, password } = req.body;
+  // jwt.sign({ username }, process.env.JWT_KEY, {
+  //     algorithm: 'HS256',
+  //     expiresIn: '2000s'
+  // }, (err, token) => {
+  //     res.json({
+  //         payload: req.body,
+  //         token: token
+  //     })
+  // })
+  // step1 find username
+  User.find({ username: username }).then((user) => {
+    console.log(user.length);
+    if (user.length > 0) {
+      // user is exist
+      let isPassCorrect = bcrypt.compareSync(password, user[0].password) // will store true or false
+      if (isPassCorrect) {
+        jwt.sign({ username: username }, process.env.JWT_KEY, (err, token) => {
+          res.json({
+            msg: "User logged in",
+            token: token,
+          });
+        });
+      } else {
+        res.json({ msg: "username or password incorrect" });
+      }
+    } else {
+      res.json({
+        msg: "username or password incorrect",
       });
     }
-  );
+  });
 });
 
 // isTokenValid middleware function
@@ -106,14 +133,14 @@ app.post("/login", (request, response) => {
 const doesTokenExist = (request, response, next) => {
   console.log(request.query);
   const token = request.query.apiKey;
-  jwt.verify(token, 'verysecretkey', (err,decoded)=>{
-    if(decoded !== undefined){
-        request.user= decoded
-        next()
-    }else{
-        response.status(403).send('Forbidden')
+  jwt.verify(token, "verysecretkey", (err, decoded) => {
+    if (decoded !== undefined) {
+      request.user = decoded;
+      next();
+    } else {
+      response.status(403).send("Forbidden");
     }
-  })
+  });
 };
 //for this method:
 //disable bearer token and instead add a query that will hold the token when you send the get request to /profile
